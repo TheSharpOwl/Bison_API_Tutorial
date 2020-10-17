@@ -1,5 +1,5 @@
 # Bison_API_Tutorial
-A tutorial about using Bison C++ and C APIs with a hand written Parser.
+A tutorial about using Bison C++ and C APIs with a hand-written Scanner.
 
 ## Links 
 1. C API (To be added)
