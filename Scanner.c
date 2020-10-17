@@ -42,7 +42,7 @@ int main()
 
         }
         // if we have a letter then add it until we get to case 1 (space or new line)
-        else if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) 
+        else if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == '_') 
         {
             s[len++] = c;
         }
