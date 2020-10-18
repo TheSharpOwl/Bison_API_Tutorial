@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-
+#include "parser.tab.h"
 FILE* fptr;
 
 // returns 0 when the file is completely read
@@ -67,7 +67,9 @@ int main()
 
     while(get_next_token() != 0);
 
-    printf("\n");
-    
+    int x = yyparse();
+
+    printf("\n%d", x);
+
     return 0;
 }
