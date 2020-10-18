@@ -8,8 +8,11 @@
 }
 %code
 {
-        int yylex(YYSTYPE *lvalp);
+    int yylex(YYSTYPE *lvalp);
     void yyerror(const char *error);
+
+    int get_next_token(YYSTYPE *lvalp);
+
     // note that this is added after including parser.tab.h in parser.tab.c
     #include<stdio.h>
     #include<string.h>
@@ -29,10 +32,10 @@
 
 %type<st> IDENT
 
-%% 
-VariableDeclaration:
-| VAR IDENT IS INT {
-    /* this is called an action*/
+%%
+
+VariableDeclaration: VAR IDENT IS INT {
+    /* this is called a semantic action*/
      printf("defined a variable %s with type int\n", $2);
      }
 ;
@@ -46,5 +49,5 @@ void yyerror(const char *error)
 
 int yylex(YYSTYPE *lvalp)
 {
-    return YYEOF;
+    return get_next_token(lvalp);
 }
