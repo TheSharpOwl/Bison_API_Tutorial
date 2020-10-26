@@ -2,3 +2,5 @@ scanner
 parser.tab.c
 parser.tab.h
 program
+Cpp/Parser.tab.cpp
+Cpp/Parser.tab.hpp
