@@ -31,8 +31,11 @@
 
 %%
 
-VariableDeclaration:
-|VAR IDENT IS INT { /* no actions for now (4) */ }
+Program:
+|Program VariableDeclaration
+;
+
+VariableDeclaration: VAR IDENT IS INT { /* no actions for now (4) */ }
 ;
 
 %%
@@ -50,6 +53,7 @@ namespace yy
 
 int main()
 {
-    yy::parser p; // (5)
+    
+    
     return 0;
 }
