@@ -1,3 +1,3 @@
 example: Parser.ypp
 	bison -d Parser.ypp
-	g++ Parser.tab.cpp -o program
+	g++ Main.cpp Parser.tab.cpp -o program

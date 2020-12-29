@@ -24,6 +24,8 @@
         parser::symbol_type yylex(); // override (2)
         // no need to override the error function because it is already waiting for our implementation (3)
     }
+
+    extern yy::parser::symbol_type get_next_token();
 }
 
 %token IDENT VAR INT IS
@@ -35,25 +37,14 @@ Program:
 |Program VariableDeclaration
 ;
 
-VariableDeclaration: VAR IDENT IS INT { /* no actions for now (4) */ }
+VariableDeclaration: VAR IDENT IS INT { std::cout << "defined an int variable " << $2 << "\n"; /* now we will print what we have */ }
 ;
 
 %%
 namespace yy
 {
-    parser::symbol_type yylex()
-    {
-        return  yy::parser::make_YYEOF ();
-    }
     void parser::error(const std::string& msg) //(3+)
     {
         std::cout<< "syntax error!\n";
     }
-}
-
-int main()
-{
-    
-    
-    return 0;
 }
